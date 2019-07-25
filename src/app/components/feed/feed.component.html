@@ -1,0 +1,10 @@
+<app-sidebar></app-sidebar>
+<div class="feed-display">
+  <div class="feed-display__title">{{activeURL}}</div>
+  <div *ngIf="feed && feed.items && feed.items.length > 0" class="feed-display__content">
+    <div *ngFor="let item of feed.items" class="feed-display__item-box">
+      <div class="feed-display__item-box-title">{{item.title}} - {{item.pubDate}}</div>
+      <div class="feed-display__item-box-description" [innerHTML]="item.description"></div>
+    </div>
+  </div>
+</div>

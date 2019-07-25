@@ -1,0 +1,87 @@
+@import "../../../imports";
+$url-search-form-height: 60px;
+$url-search-input-height: 40px;
+$url-box-height: 40px;
+
+:host {
+  display: block;
+  border-right: 5px solid $color-black;
+  width: 250px;
+  height: 100%;
+  padding-right: 5px;
+  box-sizing: border-box;
+}
+
+.feed-url-search-form {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $url-search-form-height;
+  box-sizing: border-box;
+
+  &__input {
+    height: $url-search-input-height;
+    box-sizing: border-box;
+    font-size: 14px;
+    width: 150px;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid $color-black;
+    margin-right: 30px;
+  }
+
+  &__button {
+    width: $url-search-input-height;
+    background: $color-white;
+    border: 1px solid $color-black;
+    border-radius: 3px;
+    outline: 0;
+    cursor: pointer;
+  }
+}
+
+.selected-urls {
+  border-top: 5px solid $color-black;
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: calc(100% - #{$url-search-form-height});
+
+  &__url-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px 5px 5px;
+    padding: 0 5px;
+    height: $url-box-height;
+    border: 1px solid $color-black;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    outline: 0;
+
+    &--active {
+      background: linear-gradient($color-white, $color-iron);
+      box-shadow: 2px 3px $color-iron;
+    }
+  }
+
+  &__url-box-name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 170px;
+  }
+
+  &__url-box-remove-button {
+    background: none;
+    width: $url-box-height;
+    height: $url-box-height;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+}

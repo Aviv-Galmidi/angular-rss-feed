@@ -1,0 +1,39 @@
+@import "../../../imports";
+$feed-display-title-height: 90px;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.feed-display {
+  width: 100%;
+
+  &__title {
+    margin: 30px 0;
+    height: 30px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  &__content {
+    padding: 0 25px 25px 25px;
+    height: calc(100% - #{$feed-display-title-height});
+    overflow-y: auto;
+  }
+
+  &__item-box {
+    border: 1px solid $color-black;
+    box-shadow: 2px 3px $color-iron;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    max-height: 150px;
+    overflow-y:auto;
+  }
+
+  &__item-box-title {
+    padding-bottom: 20px;
+  }
+}

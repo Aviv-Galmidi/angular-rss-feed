@@ -1,16 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {FeedComponent} from './components/feed/feed.component';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AngularSvgIconModule} from 'angular-svg-icon';
+import {HttpClientModule} from '@angular/common/http';
+import {ActiveURLService} from './services/active-url/active-url.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    FeedComponent,
+    SidebarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    AngularSvgIconModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ActiveURLService],
+  bootstrap: [FeedComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

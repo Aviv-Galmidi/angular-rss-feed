@@ -1,0 +1,13 @@
+<form class="feed-url-search-form">
+  <input [value]="feedURL" (input)="feedURL = $event.target.value" class="feed-url-search-form__input" name="feedURL">
+  <button (click)="addCurrentURL()" type="submit" class="feed-url-search-form__button">
+    <svg-icon src="assets/svg/magnifying-glass.svg">
+    </svg-icon>
+  </button>
+</form>
+<div class="selected-urls">
+  <button *ngFor="let selectedURL of selectedURLs" class="selected-urls__url-box" (click)="setActiveURL(selectedURL)" [ngClass]="{'selected-urls__url-box--active': selectedURL === activeURL}">
+    <span class="selected-urls__url-box-name" [title]="selectedURL">{{selectedURL}}</span>
+    <button class="selected-urls__url-box-remove-button" (click)="removeSelectedURL(selectedURL); $event.stopPropagation()">X</button>
+  </button>
+</div>
