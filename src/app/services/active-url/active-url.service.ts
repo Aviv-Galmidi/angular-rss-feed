@@ -11,6 +11,8 @@ export class ActiveURLService {
   private feed$ = new BehaviorSubject({});
 
   constructor(public httpClient: HttpClient) {
+    const lastKnownActiveURL = localStorage.getItem('activeURL');
+    this.setActiveURL(lastKnownActiveURL);
     this.activeURL$.subscribe((activeURL) => {
       if (activeURL) {
         this.httpClient.get(`https://rss2json.com/api.json?rss_url=${activeURL}`).subscribe((data) => {
@@ -20,6 +22,10 @@ export class ActiveURLService {
         this.feed$.next({});
       }
     });
+  }
+
+  getActiveURL() {
+    return this.activeURL;
   }
 
   setActiveURL(newActiveUrl: string) {

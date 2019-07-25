@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ActiveURLService} from '../../services/active-url/active-url.service';
 
 @Component({
@@ -6,19 +6,15 @@ import {ActiveURLService} from '../../services/active-url/active-url.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
   feedURL = '';
   activeURL: string;
   selectedURLs: string[];
 
   constructor(public activeURLService: ActiveURLService) {
-    const lastKnownActiveURL = localStorage.getItem('activeURL');
-    this.setActiveURL(lastKnownActiveURL);
+    this.activeURL = this.activeURLService.getActiveURL();
     const lastKnownSelectedURLs = JSON.parse(localStorage.getItem('selectedURLs'));
     this.selectedURLs = lastKnownSelectedURLs ? lastKnownSelectedURLs : [];
-  }
-
-  ngOnInit(): void {
   }
 
   setActiveURL(selectedURL) {
